@@ -3,6 +3,14 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
+app.use(cors({
+    origin: [
+        "http://localhost:3000",                      // Allow local development
+        "https://mern-final-project-joan-ouma.vercel.app"      // Allow your live Vercel App
+    ],
+    credentials: true
+}));
+
 // --- Import Route Files ---
 const authRoutes = require('./routes/authRoutes');
 const recipeRoutes = require('./routes/recipeRoutes');
